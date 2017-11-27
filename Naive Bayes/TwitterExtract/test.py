@@ -23,8 +23,7 @@ def getTwitterData(dir, path):
                     tweet = json.loads(each) # load it as Python dict
                 except:
                     continue
-                if tweet["lang"] == "en":
-                    l.append(tweet)
+                l.append(tweet)
     return l
 
 # Create user-tweet dict from the list of tweets
@@ -156,16 +155,18 @@ def main():
     tdir = os.listdir(tpath)
 
 
-    #tweets = getTwitterData(tdir, tpath)
+    tweets = getTwitterData(tdir, tpath)
     #users = getUserId(tweets)
+    #d = fetchTweetsForUser(tpath)
+    #writeDict("shashi.txt", d)
     #data = getUserTweetdata(tweets)
 
-
-    d = fetchTweetsForUser(n)
-
-    u = createUsercorpus()
-    #writelist("Users.txt", users)
-    # writeDict("newusers.txt", d)
-    writeDict("uD.txt", u)
+    print len(tweets)
+    #
+    # u = createUsercorpus()
+    # #writelist("Users.txt", users)
+    # writeDict("FirstTweetsData.txt", data)
+    # writeDict("uD.txt", u)
+    # print len(u)
 
 main()
